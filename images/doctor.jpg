@@ -1,0 +1,16 @@
+<svg width="500" height="650" viewBox="0 0 500 650" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="500" height="650" fill="#E0F2FE"/>
+
+  <!-- Placeholder Person Icon -->
+  <circle cx="250" cy="220" r="80" fill="#0B5E8D" opacity="0.3"/>
+  <path d="M150 500 C150 400, 150 350, 250 350 C350 350, 350 400, 350 500 L350 650 L150 650 Z" fill="#0B5E8D" opacity="0.3"/>
+
+  <!-- Text -->
+  <text x="250" y="580" text-anchor="middle" font-family="Inter, sans-serif" font-size="24" font-weight="600" fill="#0B5E8D">
+    Placeholder Image
+  </text>
+  <text x="250" y="610" text-anchor="middle" font-family="Inter, sans-serif" font-size="18" fill="#6B7280">
+    Reemplazar con foto del doctor
+  </text>
+</svg>

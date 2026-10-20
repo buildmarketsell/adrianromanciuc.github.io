@@ -1,0 +1,188 @@
+/* Hero: photo between headline and name on phones. */
+
+.hero {
+    padding: calc(var(--header-space) + var(--space-6)) 0 var(--space-8);
+}
+
+.hero-content {
+    display: grid;
+    gap: var(--space-6);
+    text-align: center;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-pill);
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: inset 0 0 0 1px var(--accent-soft);
+    color: var(--accent);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0;
+}
+
+.hero-title {
+    margin-top: var(--space-5);
+}
+
+.doctor-name {
+    font-size: 1.5rem;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+}
+
+.specialty {
+    margin-top: var(--space-1);
+    font-size: 1.0625rem;
+    color: var(--accent);
+    font-weight: 500;
+}
+
+.hero-description {
+    max-width: 520px;
+    margin: var(--space-4) auto 0;
+    font-size: 1.125rem;
+    line-height: 1.5;
+    color: var(--text-2);
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-3);
+    margin-top: var(--space-6);
+}
+
+.hero-actions .btn {
+    width: 100%;
+    max-width: 300px;
+}
+
+.hero-note {
+    margin-top: var(--space-3);
+    font-size: 0.9375rem;
+    color: var(--text-2);
+}
+
+.doctor-card {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    isolation: isolate;
+    box-shadow: 0 24px 48px rgba(11, 94, 141, 0.14);
+}
+
+.doctor-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: 55% 15%;
+    background: var(--bg-alt);
+    transform: scale(1.1);
+}
+
+.contact-card {
+    position: absolute;
+    left: var(--space-4);
+    bottom: var(--space-4);
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.78);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    backdrop-filter: blur(20px) saturate(180%);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    text-align: left;
+    transition: transform 100ms ease-out;
+}
+
+.contact-card:active {
+    transform: scale(0.97);
+}
+
+.contact-icon {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    padding: var(--space-2);
+    border-radius: 50%;
+    background: var(--accent);
+    color: #ffffff;
+}
+
+.contact-label {
+    font-size: 0.8125rem;
+    color: var(--text-2);
+    letter-spacing: 0;
+}
+
+.contact-number {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+}
+
+@media (min-width: 640px) {
+    .doctor-image {
+        aspect-ratio: 761 / 527;
+    }
+
+    .contact-card {
+        left: var(--space-5);
+        bottom: var(--space-5);
+    }
+}
+
+/* Desktop: text on the left (headline above name), photo on the right */
+@media (min-width: 960px) {
+    .hero {
+        padding: calc(var(--header-space) + var(--space-8)) 0 var(--space-9);
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr 1.15fr;
+        grid-template-areas:
+            "head photo"
+            "body photo";
+        column-gap: var(--space-7);
+        row-gap: var(--space-5);
+        text-align: left;
+    }
+
+    .hero-head {
+        grid-area: head;
+        align-self: end;
+    }
+
+    .hero-right {
+        grid-area: photo;
+        align-self: center;
+    }
+
+    .hero-body {
+        grid-area: body;
+        align-self: start;
+    }
+
+    .hero-description {
+        margin-left: 0;
+    }
+
+    .hero-actions {
+        justify-content: flex-start;
+    }
+
+    .hero-actions .btn {
+        width: auto;
+    }
+}

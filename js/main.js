@@ -1,53 +1,28 @@
-// Smooth scroll for anchor links
-document.addEventListener('DOMContentLoaded', function() {
-    // Add smooth scrolling to all links
-    const links = document.querySelectorAll('a[href^="#"]');
-
-    links.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-
-            if (targetId !== '#') {
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            }
-        });
-    });
-
-    // Add scroll effect to header
-    let lastScroll = 0;
+// Header hairline once the page scrolls, and a gentle reveal for sections.
+document.addEventListener('DOMContentLoaded', () => {
+    const SCROLL_THRESHOLD_PX = 8;
     const header = document.querySelector('.header');
 
-    window.addEventListener('scroll', function() {
-        const currentScroll = window.pageYOffset;
+    const updateHeader = () => {
+        header.classList.toggle('is-scrolled', window.scrollY > SCROLL_THRESHOLD_PX);
+    };
+    updateHeader();
+    window.addEventListener('scroll', updateHeader, { passive: true });
 
-        if (currentScroll > 50) {
-            header.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
-        } else {
-            header.style.boxShadow = '0 1px 2px 0 rgba(0, 0, 0, 0.05)';
-        }
+    const revealTargets = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+        revealTargets.forEach((el) => el.classList.add('is-visible'));
+        return;
+    }
 
-        lastScroll = currentScroll;
-    });
-
-    // Button click handlers for "Pedir Cita"
-    const ctaButtons = document.querySelectorAll('.btn-primary');
-
-    ctaButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            // Aquí puedes agregar la lógica para abrir un formulario de contacto
-            // o redirigir a una página de citas
-            console.log('Pedir Cita clicked');
-
-            // Ejemplo: abrir modal de contacto o redirigir
-            // window.location.href = 'tel:648031470';
-            // o mostrar un formulario modal
+    document.documentElement.classList.add('reveal-ready');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
         });
-    });
+    }, { rootMargin: '0px 0px -10% 0px' });
+
+    revealTargets.forEach((el) => observer.observe(el));
 });

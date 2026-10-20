@@ -1,0 +1,115 @@
+/* Floating pill navigation: frosted capsule detached from the edges */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: calc(var(--header-inset) + env(safe-area-inset-top)) 0 var(--header-inset);
+    pointer-events: none;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    height: var(--header-h);
+    padding: 0 var(--space-2) 0 var(--space-5);
+    border-radius: var(--radius-pill);
+    background: rgba(255, 255, 255, 0.72);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    backdrop-filter: blur(20px) saturate(180%);
+    box-shadow:
+        inset 0 0 0 1px rgba(0, 0, 0, 0.06),
+        0 8px 24px rgba(0, 0, 0, 0.06);
+    pointer-events: auto;
+    transition: box-shadow 200ms ease-out, background-color 200ms ease-out;
+}
+
+.header.is-scrolled .header-content {
+    background: rgba(255, 255, 255, 0.84);
+    box-shadow:
+        inset 0 0 0 1px rgba(0, 0, 0, 0.07),
+        0 12px 32px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    display: flex;
+    flex-shrink: 0;
+}
+
+.logo-img {
+    height: 40px;
+    width: auto;
+}
+
+.nav {
+    display: none;
+    gap: var(--space-6);
+}
+
+.nav-link {
+    font-size: 1.0625rem;
+    font-weight: 500;
+    color: var(--text-2);
+    transition: color 150ms ease-out;
+}
+
+.nav-link:hover {
+    color: var(--text);
+}
+
+.btn-nav {
+    min-height: 44px;
+    padding: 0 var(--space-5);
+    background: var(--ink);
+    color: #ffffff;
+}
+
+.btn-nav:hover {
+    background: #000000;
+}
+
+/* The header floats over the top of the first section */
+.hero {
+    margin-top: calc(-1 * var(--header-space));
+}
+
+@media (min-width: 720px) {
+    .nav {
+        display: flex;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --header-h: 56px;
+        --header-inset: 8px;
+    }
+
+    .header .container {
+        padding: 0 var(--space-3);
+    }
+
+    .header-content {
+        padding-left: var(--space-4);
+    }
+
+    .logo-img {
+        height: 32px;
+    }
+
+    .btn-nav {
+        min-height: 40px;
+        padding: 0 var(--space-4);
+        font-size: 0.9375rem;
+    }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+    .header-content {
+        background: var(--bg);
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
+    }
+}

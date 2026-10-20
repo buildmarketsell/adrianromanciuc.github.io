@@ -1,0 +1,250 @@
+/* Tokens, type, buttons and header. Section styles live in sections.css. */
+
+:root {
+    --bg: #ffffff;
+    --bg-alt: #f5f5f7;
+    --surface: #ffffff;
+    --text: #1d1d1f;
+    --text-2: #6e6e73;
+    --hairline: rgba(0, 0, 0, 0.08);
+    --accent: #0b5e8d;
+    --accent-press: #084a70;
+    --accent-soft: rgba(11, 94, 141, 0.08);
+    --whatsapp: #25d366;
+
+    /* Background grid and glows: clinical blues only */
+    --grid-line: rgba(11, 94, 141, 0.07);
+    --grid-size: 40px;
+    --glow-blue: rgba(11, 94, 141, 0.22);
+    --glow-teal: rgba(42, 157, 170, 0.2);
+    --glow-sky: rgba(185, 211, 238, 0.85);
+
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 24px;
+    --space-6: 32px;
+    --space-7: 48px;
+    --space-8: 64px;
+    --space-9: 96px;
+
+    --radius-sm: 12px;
+    --radius-md: 20px;
+    --radius-lg: 28px;
+    --radius-pill: 980px;
+
+    --container: 1080px;
+    --gutter: 20px;
+    --header-h: 60px;
+    --header-inset: 12px;
+    --header-space: calc(var(--header-h) + 2 * var(--header-inset));
+    --ink: #1e1548;
+
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-space);
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    width: 100%;
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+}
+
+/* Type scale: tight tracking and leading as size grows */
+.display {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+    font-weight: 700;
+}
+
+.section-title {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    font-weight: 700;
+    text-align: center;
+}
+
+.section-description {
+    max-width: 620px;
+    margin: var(--space-4) auto 0;
+    font-size: 1.1875rem;
+    line-height: 1.45;
+    color: var(--text-2);
+    text-align: center;
+}
+
+.highlight {
+    color: var(--accent);
+}
+
+/* Buttons: feedback on press, not on release */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    min-height: 44px;
+    padding: 0 var(--space-5);
+    border-radius: var(--radius-pill);
+    font-size: 1.0625rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    transition: transform 100ms ease-out, background-color 150ms ease-out;
+    touch-action: manipulation;
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background: var(--accent-press);
+}
+
+.btn-primary:focus-visible {
+    outline: 3px solid var(--accent-soft);
+    outline-offset: 3px;
+}
+
+.btn-secondary {
+    background: #ffffff;
+    color: var(--text);
+    box-shadow: inset 0 0 0 1px var(--hairline), 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.btn-secondary:hover {
+    background: var(--bg-alt);
+}
+
+.wa-icon {
+    color: var(--whatsapp);
+}
+
+.btn-small {
+    min-height: 36px;
+    padding: 0 var(--space-4);
+    font-size: 0.9375rem;
+}
+
+.btn-large {
+    min-height: 52px;
+    padding: 0 var(--space-6);
+}
+
+.btn-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+/* Grid paper with soft clinical-blue glows, shared by hero and contact */
+.grid-section {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.grid-section::before,
+.grid-section::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.grid-section::before {
+    background:
+        radial-gradient(32% 22% at 10% 20%, var(--glow-blue), transparent 70%),
+        radial-gradient(30% 24% at 92% 34%, var(--glow-teal), transparent 70%),
+        radial-gradient(36% 22% at 18% 86%, var(--glow-sky), transparent 72%),
+        radial-gradient(30% 20% at 86% 92%, var(--glow-blue), transparent 72%);
+    filter: blur(40px);
+}
+
+.grid-section::after {
+    background-image:
+        linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+    background-size: var(--grid-size) var(--grid-size);
+    background-position: center top;
+    -webkit-mask-image: radial-gradient(ellipse 80% 75% at 50% 45%, #000 55%, transparent 100%);
+    mask-image: radial-gradient(ellipse 80% 75% at 50% 45%, #000 55%, transparent 100%);
+}
+
+/* Scroll reveal, set up by main.js */
+.reveal-ready .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 700ms var(--ease-out), transform 700ms var(--ease-out);
+}
+
+.reveal-ready .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .reveal-ready .reveal {
+        transform: none;
+        transition: opacity 200ms ease;
+    }
+
+    .btn:active {
+        transform: none;
+    }
+}

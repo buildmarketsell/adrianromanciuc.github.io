@@ -1,8 +1,9 @@
 <svg width="300" height="60" viewBox="0 0 300 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Medical Symbol -->
-  <circle cx="30" cy="30" r="25" fill="#0B5E8D"/>
-  <rect x="28" y="15" width="4" height="30" fill="white" rx="2"/>
-  <rect x="15" y="28" width="30" height="4" fill="white" rx="2"/>
+  <!-- Mark: a pair of kidneys facing each other -->
+  <g transform="translate(30 30) scale(1.3) translate(-24 -24)">
+    <path d="M17 6C9.8 6 5 13.6 5 24s4.8 18 12 18c4.6 0 7.4-3.2 6.6-7-.5-2.4-2.6-4-2.6-11s2.1-8.6 2.6-11C24.4 9.2 21.6 6 17 6z" fill="#0B5E8D"/>
+    <path d="M31 6c7.2 0 12 7.6 12 18s-4.8 18-12 18c-4.6 0-7.4-3.2-6.6-7 .5-2.4 2.6-4 2.6-11s-2.1-8.6-2.6-11C23.6 9.2 26.4 6 31 6z" fill="#2A9DAA"/>
+  </g>
 
   <!-- Text -->
   <text x="65" y="28" font-family="Inter, sans-serif" font-size="18" font-weight="800" fill="#1E1548">ADRIAN</text>

@@ -2,13 +2,15 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Dr. Adrián Romanciuc - Especialista en Nefrología | Badajoz</title>
     <meta name="description" content="Atención médica especializada en el cuidado de sus riñones. Más de una década de experiencia en Badajoz.">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="css/base.css?v=6">
+    <link rel="stylesheet" href="css/header.css?v=6">
+    <link rel="stylesheet" href="css/hero.css?v=6">
+    <link rel="stylesheet" href="css/sections.css?v=6">
+    <link rel="stylesheet" href="css/footer.css?v=6">
 </head>
 <body>
     <!-- Header -->
@@ -16,9 +18,13 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <img src="images/logo.svg" alt="Dr. Adrián Romanciuc" class="logo-img">
+                    <img src="images/logo.svg?v=2" alt="Dr. Adrián Romanciuc" class="logo-img" width="200" height="40">
                 </div>
-                <a href="tel:648031470" class="btn btn-primary">
+                <nav class="nav" aria-label="Secciones">
+                    <a href="#servicios" class="nav-link">Servicios</a>
+                    <a href="#contacto" class="nav-link">Contacto</a>
+                </nav>
+                <a href="tel:+34614663657" class="btn btn-nav">
                     <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                     </svg>
@@ -29,11 +35,10 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero grid-section">
         <div class="container">
             <div class="hero-content">
-                <!-- Left Content -->
-                <div class="hero-left">
+                <div class="hero-head">
                     <div class="badge">
                         <svg class="badge-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
@@ -41,10 +46,30 @@
                         Consulta Privada en Badajoz
                     </div>
 
-                    <h1 class="hero-title">
+                    <h1 class="hero-title display">
                         Cuidamos de la salud de sus riñones
                     </h1>
 
+                </div>
+
+                <!-- Right Content - Doctor Image -->
+                <div class="hero-right">
+                    <div class="doctor-card">
+                        <img src="images/Hero.png" alt="Dr. Adrián Romanciuc" class="doctor-image" width="761" height="527" fetchpriority="high">
+
+                        <a href="tel:+34614663657" class="contact-card">
+                            <svg class="contact-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                            <div class="contact-info">
+                                <div class="contact-label">Teléfono y WhatsApp</div>
+                                <div class="contact-number">614 66 36 57</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-body">
                     <div class="hero-subtitle">
                         <h2 class="doctor-name">Dr. Adrián Romanciuc</h2>
                         <p class="specialty">Especialista en Nefrología</p>
@@ -56,44 +81,29 @@
                         y tratamientos personalizados con un enfoque humano y cercano.
                     </p>
 
-                    <a href="tel:648031470" class="btn btn-primary btn-large">
-                        <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                        </svg>
-                        Pedir Cita
-                    </a>
-                </div>
-
-                <!-- Right Content - Doctor Image -->
-                <div class="hero-right">
-                    <div class="doctor-card">
-                        <div class="background-text">Hospital</div>
-                        <div class="background-text background-text-2">Dr. Vidal</div>
-                        <img src="images/Hero.png" alt="Dr. Adrián Romanciuc" class="doctor-image">
-
-                        <a href="tel:648031470" class="contact-card">
-                            <svg class="contact-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <div class="hero-actions">
+                        <a href="tel:+34614663657" class="btn btn-primary btn-large">
+                            <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                             </svg>
-                            <div class="contact-info">
-                                <div class="contact-label">Teléfono</div>
-                                <div class="contact-number">648 03 14 70</div>
-                            </div>
+                            Pedir Cita
+                        </a>
+                        <a href="https://wa.me/34614663657?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20con%20el%20Dr.%20Romanciuc." class="btn btn-secondary btn-large" target="_blank" rel="noopener">
+                            <svg class="btn-icon wa-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                            WhatsApp
                         </a>
                     </div>
-
-                    <!-- Decorative shapes -->
-                    <div class="shape shape-1"></div>
-                    <div class="shape shape-2"></div>
+                    <p class="hero-note">Llame o escriba por WhatsApp al 614 66 36 57.</p>
                 </div>
+
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section class="services">
+    <section class="services" id="servicios">
         <div class="container">
-            <div class="services-header">
+            <div class="services-header reveal">
                 <h2 class="section-title">Nuestros servicios</h2>
                 <p class="section-description">
                     Ofrecemos una amplia gama de servicios nefrológicos, utilizando las técnicas diagnósticas y terapéuticas más avanzadas.
@@ -102,7 +112,7 @@
 
             <div class="services-grid">
                 <!-- Service 1 -->
-                <div class="service-card">
+                <div class="service-card reveal">
                     <div class="service-icon">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"></path>
@@ -117,7 +127,7 @@
                 </div>
 
                 <!-- Service 2 -->
-                <div class="service-card">
+                <div class="service-card reveal">
                     <div class="service-icon">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
@@ -133,7 +143,7 @@
                 </div>
 
                 <!-- Service 3 -->
-                <div class="service-card">
+                <div class="service-card reveal">
                     <div class="service-icon">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
@@ -147,7 +157,7 @@
                 </div>
 
                 <!-- Service 4 -->
-                <div class="service-card">
+                <div class="service-card reveal">
                     <div class="service-icon">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -163,7 +173,7 @@
                 </div>
 
                 <!-- Service 5 -->
-                <div class="service-card">
+                <div class="service-card reveal">
                     <div class="service-icon">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
@@ -176,7 +186,7 @@
                 </div>
 
                 <!-- Service 6 -->
-                <div class="service-card">
+                <div class="service-card reveal">
                     <div class="service-icon">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
@@ -193,17 +203,17 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="contact">
+    <section class="contact grid-section" id="contacto">
         <div class="container">
-            <div class="contact-header">
+            <div class="contact-header reveal">
                 <h2 class="section-title">Estamos aquí para <span class="highlight">ayudarle</span></h2>
             </div>
 
             <div class="contact-content">
                 <!-- Contact Info Cards -->
-                <div class="contact-info-wrapper">
+                <div class="contact-info-wrapper reveal">
                     <!-- Phone Card -->
-                    <a href="tel:648031470" class="info-card">
+                    <a href="tel:+34614663657" class="info-card">
                         <div class="info-icon phone-icon">
                             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
@@ -211,12 +221,23 @@
                         </div>
                         <div class="info-content">
                             <h3 class="info-label">Teléfono</h3>
-                            <p class="info-value">648 03 14 70</p>
+                            <p class="info-value">614 66 36 57</p>
+                        </div>
+                    </a>
+
+                    <!-- WhatsApp Card -->
+                    <a href="https://wa.me/34614663657?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20con%20el%20Dr.%20Romanciuc." class="info-card" target="_blank" rel="noopener">
+                        <div class="info-icon whatsapp-icon">
+                            <svg class="" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                        </div>
+                        <div class="info-content">
+                            <h3 class="info-label">WhatsApp</h3>
+                            <p class="info-value">Escríbanos al 614 66 36 57</p>
                         </div>
                     </a>
 
                     <!-- Address Card -->
-                    <div class="info-card">
+                    <a href="https://www.google.com/maps/search/?api=1&query=Nefr%C3%B3logo%20Dr.%20Adri%C3%A1n%20Romanciuc%20Badajoz" class="info-card" target="_blank" rel="noopener">
                         <div class="info-icon location-icon">
                             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
@@ -227,7 +248,7 @@
                             <h3 class="info-label">Dirección</h3>
                             <p class="info-value">C. Manuel García Matos, 6, 06004</p>
                         </div>
-                    </div>
+                    </a>
 
                     <!-- Schedule Card -->
                     <div class="info-card">
@@ -245,10 +266,11 @@
                 </div>
 
                 <!-- Map -->
-                <div class="map-wrapper">
+                <div class="map-wrapper reveal">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6212.598739008869!2d-6.972294!3d38.871392!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd16e525b6d39403%3A0x4d7c6683a4f6d16!2sNefr%C3%B3logo%20-%20Dr.%20Adri%C3%A1n%20Romanciuc!5e0!3m2!1sen!2ses!4v1769966944033!5m2!1sen!2ses"
                         class="map-iframe"
+                        title="Mapa de la consulta del Dr. Adrián Romanciuc"
                         allowfullscreen=""
                         loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade">
@@ -264,7 +286,7 @@
             <div class="footer-content">
                 <div class="footer-left">
                     <div class="footer-logo">
-                        <img src="images/logo.svg" alt="Dr. Adrián Romanciuc" class="footer-logo-img">
+                        <img src="images/logo.svg?v=2" alt="Dr. Adrián Romanciuc" class="footer-logo-img" width="180" height="36" loading="lazy">
                     </div>
                     <p class="footer-tagline">
                         Cuidando de la salud renal con experiencia y dedicación
@@ -275,7 +297,8 @@
                     <div class="footer-column">
                         <h4 class="footer-title">Contacto</h4>
                         <ul class="footer-list">
-                            <li><a href="tel:648031470" class="footer-link">648 03 14 70</a></li>
+                            <li><a href="tel:+34614663657" class="footer-link">614 66 36 57</a></li>
+                            <li><a href="https://wa.me/34614663657?text=Hola%2C%20me%20gustar%C3%ADa%20pedir%20cita%20con%20el%20Dr.%20Romanciuc." class="footer-link" target="_blank" rel="noopener">WhatsApp</a></li>
                             <li><span class="footer-text">C. Manuel García Matos, 6</span></li>
                             <li><span class="footer-text">06004 Badajoz</span></li>
                         </ul>
@@ -300,6 +323,6 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="js/main.js?v=6"></script>
 </body>
 </html>

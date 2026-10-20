@@ -1,0 +1,164 @@
+/* Services and contact. Mobile first; wider layouts in media queries. */
+
+/* Services */
+.services {
+    padding: var(--space-8) 0;
+    background: var(--bg-alt);
+}
+
+.services-grid {
+    display: grid;
+    gap: var(--space-3);
+    margin-top: var(--space-7);
+}
+
+.service-card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: var(--space-4);
+    padding: var(--space-5);
+    border-radius: var(--radius-md);
+    background: var(--surface);
+}
+
+.service-icon {
+    grid-row: span 2;
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-sm);
+    background: var(--accent-soft);
+    color: var(--accent);
+}
+
+.service-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.service-title {
+    font-size: 1.1875rem;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+}
+
+.service-description {
+    margin-top: var(--space-1);
+    font-size: 1rem;
+    color: var(--text-2);
+}
+
+/* Contact: grouped list plus map */
+.contact {
+    padding: var(--space-8) 0;
+}
+
+.contact-content {
+    display: grid;
+    gap: var(--space-4);
+    margin-top: var(--space-7);
+}
+
+.contact-info-wrapper {
+    border-radius: var(--radius-md);
+    background: var(--bg-alt);
+    overflow: hidden;
+}
+
+.info-card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-4) var(--space-5);
+}
+
+.info-card + .info-card {
+    border-top: 1px solid var(--hairline);
+}
+
+a.info-card:active {
+    background: rgba(0, 0, 0, 0.04);
+}
+
+.info-icon {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #ffffff;
+}
+
+.info-icon.whatsapp-icon {
+    background: var(--whatsapp);
+}
+
+.info-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.info-label {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--text-2);
+    letter-spacing: 0;
+}
+
+.info-value {
+    font-size: 1.0625rem;
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+.map-wrapper {
+    min-height: 320px;
+    border-radius: var(--radius-md);
+    background: var(--bg-alt);
+    overflow: hidden;
+}
+
+.map-iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 320px;
+    border: 0;
+}
+
+/* Tablet */
+@media (min-width: 640px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-4);
+    }
+
+    .service-card {
+        display: block;
+        padding: var(--space-6);
+    }
+
+    .service-title {
+        margin-top: var(--space-5);
+    }
+}
+
+/* Desktop */
+@media (min-width: 960px) {
+    .services,
+    .contact {
+        padding: var(--space-9) 0;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .contact-content {
+        grid-template-columns: 2fr 3fr;
+    }
+}

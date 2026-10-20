@@ -1,4 +1,4 @@
-// Header hairline once the page scrolls, and a gentle reveal for sections.
+// Header state on scroll, floating WhatsApp button, and a gentle reveal for sections.
 document.addEventListener('DOMContentLoaded', () => {
     const SCROLL_THRESHOLD_PX = 8;
     const header = document.querySelector('.header');
@@ -8,6 +8,24 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     updateHeader();
     window.addEventListener('scroll', updateHeader, { passive: true });
+
+    // Floating WhatsApp button appears once the hero leaves the screen
+    const fab = document.querySelector('.fab');
+    const hero = document.querySelector('.hero');
+    if (fab && hero && 'IntersectionObserver' in window) {
+        new IntersectionObserver(([entry]) => {
+            fab.classList.toggle('is-visible', !entry.isIntersecting);
+        }).observe(hero);
+    }
+
+    // Service cards: feed the pointer position to the hover spotlight
+    document.querySelectorAll('.service-card').forEach((card) => {
+        card.addEventListener('pointermove', (event) => {
+            const rect = card.getBoundingClientRect();
+            card.style.setProperty('--mx', `${event.clientX - rect.left}px`);
+            card.style.setProperty('--my', `${event.clientY - rect.top}px`);
+        }, { passive: true });
+    });
 
     const revealTargets = document.querySelectorAll('.reveal');
     if (!('IntersectionObserver' in window)) {

@@ -1,0 +1,91 @@
+/* Service card hover: lift, cursor spotlight with grid, icon fills in. Pointer devices only. */
+
+.services-grid .service-card {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+    transition:
+        opacity 700ms var(--ease-out),
+        transform 700ms var(--ease-out),
+        translate 350ms var(--ease-out),
+        scale 100ms ease-out,
+        box-shadow 350ms ease-out;
+}
+
+/* Spotlight glow and grid, both centred on the pointer (--mx, --my set by main.js) */
+.service-card::before,
+.service-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 350ms ease-out;
+}
+
+.service-card::before {
+    background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 0%), var(--glow-blue), transparent 70%);
+}
+
+.service-card::after {
+    background-image:
+        linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+    background-size: 24px 24px;
+    -webkit-mask-image: radial-gradient(220px circle at var(--mx, 50%) var(--my, 0%), #000, transparent 75%);
+    mask-image: radial-gradient(220px circle at var(--mx, 50%) var(--my, 0%), #000, transparent 75%);
+}
+
+.service-icon {
+    transition:
+        background-color 300ms ease-out,
+        color 300ms ease-out,
+        transform 450ms var(--ease-out),
+        box-shadow 300ms ease-out;
+}
+
+.services-grid .service-card:active {
+    scale: 0.98;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .services-grid .service-card:hover {
+        translate: 0 -4px;
+        box-shadow:
+            0 22px 60px rgba(11, 94, 141, 0.12),
+            inset 0 0 0 1px rgba(11, 94, 141, 0.08);
+    }
+
+    .service-card:hover::before {
+        opacity: 0.55;
+    }
+
+    .service-card:hover::after {
+        opacity: 1;
+    }
+
+    .service-card:hover .service-icon {
+        background: var(--accent);
+        color: #ffffff;
+        transform: scale(1.08) rotate(-6deg);
+        box-shadow: 0 10px 24px rgba(11, 94, 141, 0.25);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .services-grid .service-card {
+        transition: opacity 200ms ease, box-shadow 200ms ease;
+    }
+
+    .services-grid .service-card:hover,
+    .services-grid .service-card:active {
+        translate: none;
+        scale: none;
+    }
+
+    .service-card:hover .service-icon {
+        transform: none;
+    }
+}

@@ -1,0 +1,84 @@
+/* Closing call to action and floating WhatsApp button */
+
+.closing {
+    padding: var(--space-9) 0;
+}
+
+.closing-content {
+    text-align: center;
+}
+
+.closing .hero-actions {
+    justify-content: center;
+}
+
+.fab {
+    position: fixed;
+    right: calc(var(--space-4) + env(safe-area-inset-right));
+    bottom: calc(var(--space-4) + env(safe-area-inset-bottom));
+    z-index: 90;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    min-height: 52px;
+    padding: 0 var(--space-5);
+    border-radius: var(--radius-pill);
+    background: var(--ink);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(16px) scale(0.96);
+    pointer-events: none;
+    transition: opacity 250ms ease-out, transform 400ms var(--ease-out);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.fab.is-visible {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+}
+
+.fab.is-visible:active {
+    transform: scale(0.96);
+    transition-duration: 100ms;
+}
+
+.fab-icon {
+    width: 22px;
+    height: 22px;
+    color: var(--whatsapp);
+}
+
+/* Phones: icon-only circle so it never covers content */
+@media (max-width: 480px) {
+    .fab {
+        width: 56px;
+        min-height: 56px;
+        padding: 0;
+        justify-content: center;
+        background: var(--whatsapp);
+    }
+
+    .fab-icon {
+        width: 28px;
+        height: 28px;
+        color: #ffffff;
+    }
+
+    .fab-label {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fab {
+        transform: none;
+    }
+}
